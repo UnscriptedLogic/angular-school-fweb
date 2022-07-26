@@ -1,0 +1,37 @@
+[
+	{
+		"id": 0,
+		"name": "John Doe",
+		"score": 2250
+	},
+	{
+		"id": 1,
+		"name": "Alex",
+		"score": 1025
+	},
+	{
+		"id": 2,
+		"name": "Steve",
+		"score": 1275
+	},
+	{
+		"id": 3,
+		"name": "Jane Doe",
+		"score": 2150
+	},
+	{
+		"id": 4,
+		"name": "Mr Yeast",
+		"score": 3450
+	},
+	{
+		"id": 5,
+		"name": "Pyu Dhee Bai",
+		"score": 3250
+	},
+	{
+		"id": 6,
+		"name": "Jack Sheet",
+		"score": 2900
+	}
+]

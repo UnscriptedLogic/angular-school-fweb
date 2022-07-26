@@ -1,0 +1,28 @@
+<div class="flex justify-content-center align-items-center h-screen w-full">
+  <p-card
+    header="Play GeoGuesser Lah!"
+    subheader="Lightweight version of the GeoGuesser game"
+    [style]="{ width: '600px' }"
+    styleClass="p-card-shadow"
+  >
+    <ng-template pTemplate="header">
+      <img alt="Card" src="assets/usercard.png" />
+    </ng-template>
+    <p>
+      Play a round of 15 questions and answer as fast as you can under 3 minutes
+      where you think the picture shown is located at! Your score will be shown
+      on the leaderboards!
+    </p>
+    <ng-template pTemplate="footer">
+      <p-button
+        class="flex align-items-end justify-content-end"
+        relative
+        label="Let's Go!"
+        icon="pi pi-caret-right"
+        styleClass="p-button-success"
+        (click)="onClickedPlay()"
+        routerLink="/game"
+      ></p-button>
+    </ng-template>
+  </p-card>
+</div>

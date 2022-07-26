@@ -1,0 +1,56 @@
+<div class="flex justify-content-center align-items-center h-screen w-full">
+  <p-card
+    header="Settings"
+    subheader="Settings are saved when logged in!"
+    [style]="{ width: '1200px', height: '800px' }"
+    styleClass="p-card-shadow"
+  >
+    <ul class="list-none p-0 m-0">
+      <li class="flex align-items-center py-3 px-2 border-top-1 flex-wrap">
+        <div class="text-900 w-6 md:w-2 font-medium">Notify Overtake</div>
+        <div class="text-500 w-full md:w-8 md:flex-order-0 flex-order-1">
+          Receive an email when someone has overtaken you.
+        </div>
+        <div class="w-6 md:w-2 flex justify-content-end">
+          <p-inputSwitch [(ngModel)]="notifyOvertake"></p-inputSwitch>
+        </div>
+      </li>
+      <li class="flex align-items-center py-3 px-2 border-top-1 flex-wrap">
+        <div class="text-900 w-6 md:w-2 font-medium">Notify New King</div>
+        <div class="text-500 w-full md:w-8 md:flex-order-0 flex-order-1">
+          Receive an email when the user at first place has changed.
+        </div>
+        <div class="w-6 md:w-2 flex justify-content-end">
+          <p-inputSwitch [(ngModel)]="notifyNewKing"></p-inputSwitch>
+        </div>
+      </li>
+      <li class="flex align-items-center py-3 px-2 border-top-1 flex-wrap">
+        <div class="text-900 w-6 md:w-2 font-medium">Even Darker Theme</div>
+        <div class="text-500 w-full md:w-8 md:flex-order-0 flex-order-1">
+          Switch to an even darker theme.
+        </div>
+        <div class="w-6 md:w-2 flex justify-content-end">
+          <p-toggleButton
+            [(ngModel)]="darkTheme"
+            onIcon="pi pi-moon"
+            offIcon="pi pi-sun"
+            [style]="{ width: '3em' }"
+          ></p-toggleButton>
+        </div>
+      </li>
+      <li class="flex align-items-center py-3 px-2 border-top-1 flex-wrap">
+        <div class="text-900 w-6 md:w-2 font-medium">Save</div>
+        <div class="text-500 w-full md:w-8 md:flex-order-0 flex-order-1">
+          Saves the settings. Will be re-applied whenever you log back in
+        </div>
+        <div class="w-6 md:w-2 flex justify-content-end">
+          <p-button
+            label="Save"
+            icon="pi pi-check"
+            styleClass="p-button-m"
+          ></p-button>
+        </div>
+      </li>
+    </ul>
+  </p-card>
+</div>

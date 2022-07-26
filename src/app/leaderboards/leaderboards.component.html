@@ -1,0 +1,60 @@
+<div class="flex justify-content-center align-items-center h-screen w-full">
+  <div class="flex">
+    <p-card
+      header="Leaderboards"
+      subheader="See the top scores of those who've played the game"
+      [style]="{ width: '1200px', height: '800px' }"
+      styleClass="p-card-shadow"
+    >
+      <div
+        *ngIf="!loaded"
+        class="flex align-items-center justify-content-center"
+        [style]="{ height: '600px' }"
+      >
+        <p-progressSpinner
+          [style]="{ width: '50px', height: '50px' }"
+          strokeWidth="5"
+          animationDuration="2s"
+        ></p-progressSpinner>
+      </div>
+
+      <p-table [value]="sortedUserScores" [rowHover]="true" *ngIf="loaded">
+        <ng-template pTemplate="header">
+          <tr>
+            <th [style]="{ width: '100px' }">Rank</th>
+            <th>Name</th>
+            <th [style]="{ width: '400px' }">Score</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user let-i="rowIndex">
+          <tr
+            [ngClass]="{
+              firstPlace: i == 0,
+              secondPlace: i == 1,
+              thirdPlace: i == 2
+            }"
+          >
+            <td>{{ i + 1 }}</td>
+            <td>
+              {{
+                i == 0
+                  ? "🥇 " + user.name
+                  : i == 1
+                  ? "🥈 " + user.name
+                  : i == 2
+                  ? "🥉 " + user.name
+                  : user.name
+              }}
+            </td>
+            <td>{{ user.score }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-card>
+    <p-button
+      icon="pi pi-refresh"
+      [style]="{ margin: '10px' }"
+      (onClick)="reloadScores()"
+    ></p-button>
+  </div>
+</div>
