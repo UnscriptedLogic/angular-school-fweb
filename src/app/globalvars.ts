@@ -5,7 +5,6 @@ export class GlobalVars {
     public static password: string;
     public static score: number;
     public static userType: string;
-
     public static gameDuration: number = 120;
 
     constructor() { }
