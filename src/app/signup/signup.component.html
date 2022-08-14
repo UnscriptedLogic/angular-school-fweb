@@ -1,0 +1,93 @@
+<p-dialog
+  [(visible)]="displayLoading"
+  [modal]="true"
+  [closable]="false"
+  [showHeader]="false"
+>
+  <h3 class="flex justify-content-center align-items-center w-full">
+    Creating your account...
+  </h3>
+  <p-progressSpinner
+    class="flex justify-content-center align-items-center w-full"
+    [style]="{ width: '50px', height: '50px' }"
+    strokeWidth="5"
+    animationDuration="2s"
+  ></p-progressSpinner>
+  <h5 class="flex justify-content-center align-items-center w-full">
+    Exposing your IP address...
+  </h5>
+</p-dialog>
+<p-dialog header="Username Taken" [(visible)]="displayUsertaken" [modal]="true">
+  <h5 class="flex justify-content-center align-items-center w-full">
+    Aw Snap! Someone took your legendary name. That's alright. <br />You always
+    come up with better ones... right?
+  </h5>
+</p-dialog>
+<div class="flex justify-content-center align-items-center h-screen w-full">
+  <p-card
+    header="Sign Up"
+    subheader="Let's see you on the leaderboard!"
+    class="flex justify-content-center"
+    [style]="{ width: '400px', height: '450px' }"
+  >
+    <span class="p-float-label mt-3">
+      <input
+        id="username_input"
+        class="flex align-items-center w-full"
+        type="text"
+        [(ngModel)]="username"
+        [style]="{ width: '243px' }"
+        pInputText
+      />
+      <label for="username_input">Username</label>
+    </span>
+    <span class="p-float-label mt-4">
+      <p-password
+        id="password_input"
+        type="password"
+        [(ngModel)]="password"
+        [toggleMask]="true"
+        styleClass="w-full"
+        [inputStyle]="{ width: '100%' }"
+      >
+        <ng-template pTemplate="footer">
+          <p-divider></p-divider>
+          <p class="mt-2">Suggestions</p>
+          <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+            <li>At least one lowercase</li>
+            <li>At least one uppercase</li>
+            <li>At least one numeric</li>
+            <li>Minimum 8 characters</li>
+          </ul>
+        </ng-template>
+      </p-password>
+      <label styleClass="w-full" for="password_input">Password</label>
+    </span>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Sign Up"
+      class="p-button-outlined p-button-warning w-full mt-3"
+      (click)="onClickedSignup()"
+    ></button>
+    <p-divider align="center"><b>OR</b></p-divider>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Sign Up with Google"
+      class="p-button-danger w-full"
+      icon="pi pi-google"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Already have an account? Log In"
+      class="p-button-success w-full mt-3"
+      icon="pi pi-sign-in"
+      routerLink="/login"
+    ></button>
+  </p-card>
+</div>

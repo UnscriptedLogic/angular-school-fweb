@@ -1,0 +1,93 @@
+<p-dialog
+  [(visible)]="displayLoading"
+  [modal]="true"
+  [closable]="false"
+  [showHeader]="false"
+>
+  <h3 class="flex justify-content-center align-items-center w-full">
+    Creating your account...
+  </h3>
+  <p-progressSpinner
+    class="flex justify-content-center align-items-center w-full"
+    [style]="{ width: '50px', height: '50px' }"
+    strokeWidth="5"
+    animationDuration="2s"
+  ></p-progressSpinner>
+  <h5 class="flex justify-content-center align-items-center w-full">
+    Exposing your IP address...
+  </h5>
+</p-dialog>
+<p-dialog
+  header="Wrong Password"
+  [(visible)]="displayWrongPassword"
+  [modal]="true"
+>
+  <h5 class="flex justify-content-center align-items-center w-full">
+    We've found a user with that username but the <br />password you have
+    entered is incorrect.
+  </h5>
+</p-dialog>
+<p-dialog header="No User Found" [(visible)]="displayNoUser" [modal]="true">
+  <h5 class="flex justify-content-center align-items-center w-full">
+    No user found with that username.
+  </h5>
+</p-dialog>
+<div class="flex justify-content-center align-items-center h-screen w-full">
+  <p-card
+    header="Log In"
+    subheader="Welcome back! It's good to see you again."
+    class="flex justify-content-center"
+    [style]="{ width: '400px', height: '450px' }"
+  >
+    <span class="p-float-label mt-3">
+      <input
+        id="username_input"
+        class="flex align-items-center w-full"
+        type="text"
+        [(ngModel)]="username"
+        [style]="{ width: '243px' }"
+        pInputText
+      />
+      <label for="username_input">Username</label>
+    </span>
+    <span class="p-float-label mt-4">
+      <p-password
+        id="password_input"
+        type="password"
+        [(ngModel)]="password"
+        [toggleMask]="true"
+        styleClass="w-full"
+        [inputStyle]="{ width: '100%' }"
+        [feedback]="false"
+      >
+      </p-password>
+      <label styleClass="w-full" for="password_input">Password</label>
+    </span>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Log In"
+      class="p-button-outlined p-button-warning w-full mt-3"
+      (click)="onClickedLogIn()"
+    ></button>
+    <p-divider align="center"><b>OR</b></p-divider>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Sign Up with Google"
+      class="p-button-danger w-full"
+      icon="pi pi-google"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="New Here? Sign Up"
+      class="p-button-success w-full mt-3"
+      icon="pi pi-sign-in"
+      routerLink="/signup"
+    ></button>
+  </p-card>
+</div>

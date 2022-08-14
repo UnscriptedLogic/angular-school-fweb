@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalVars } from '../globalvars';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,12 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
+  isLoggedIn: boolean;
+  gameDuration: number;
+
   ngOnInit(): void {
+    this.isLoggedIn = GlobalVars.isLoggedIn;
+    this.gameDuration = GlobalVars.gameDuration;
   }
 
   onClickedPlay() {

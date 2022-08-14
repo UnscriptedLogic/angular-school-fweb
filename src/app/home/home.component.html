@@ -9,19 +9,28 @@
       <img alt="Card" src="assets/usercard.png" />
     </ng-template>
     <p>
-      Play a round of 15 questions and answer as fast as you can under 3 minutes
-      where you think the picture shown is located at! Your score will be shown
-      on the leaderboards!
+      You'll have {{ gameDuration }} seconds to guess as many locations as you
+      can. Let's see who can get the highest score on the leader boards!
     </p>
     <ng-template pTemplate="footer">
       <p-button
+        *ngIf="isLoggedIn"
         class="flex align-items-end justify-content-end"
         relative
         label="Let's Go!"
         icon="pi pi-caret-right"
-        styleClass="p-button-success"
+        styleClass="p-button-outlined p-button-success"
         (click)="onClickedPlay()"
         routerLink="/game"
+      ></p-button>
+      <p-button
+        *ngIf="!isLoggedIn"
+        class="flex align-items-end justify-content-end"
+        relative
+        label="Sign Up To Play!"
+        icon="pi pi-pencil"
+        styleClass="p-button-outlined p-button-warning"
+        routerLink="/signup"
       ></p-button>
     </ng-template>
   </p-card>

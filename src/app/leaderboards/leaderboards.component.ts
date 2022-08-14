@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/services/users-service.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-leaderboards',
@@ -35,9 +36,9 @@ export class LeaderboardsComponent implements OnInit {
   usersService: UsersService;
   sortedUserScores: any[];
 
-  constructor() {
+  constructor(private http: HttpClient) {
     console.log("Started");
-    this.usersService = new UsersService();
+    this.usersService = new UsersService(http);
   }
   
   ngOnInit(): void {
@@ -51,12 +52,6 @@ export class LeaderboardsComponent implements OnInit {
     this.loaded = true;
     console.log("Completed");
     return this.sortedUserScores;
-  }
-
-  displaySortedScores() {
-    console.log("Displaying sorted scores");
-    this.sortedUserScores = this.usersService.getUsers();
-    return this.sortedUserScores.sort((a, b) => b.score - a.score);
   }
 
   reloadScores(){

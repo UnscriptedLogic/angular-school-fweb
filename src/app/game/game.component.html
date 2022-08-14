@@ -1,6 +1,7 @@
 <div class="flex justify-content-center align-items-center h-screen w-full">
   <p-card
-    subheader="Timer goes here"
+    header="Score: {{ score }}"
+    subheader="Time Left: {{ gameDuration }}sec"
     [style]="{ width: '1400px', height: '800px' }"
     styleClass="p-card-shadow"
   >
@@ -11,7 +12,7 @@
         [style]="{ width: '700px', height: '700px' }"
       >
         <img
-          src="/assets/iconic_8.png"
+          src="{{ imagePath }}"
           alt=""
           [style]="{
             width: '100%',
@@ -33,7 +34,7 @@
           <div class="flex flex-column gap-3">
             <p-card
               subheader="Cardinal Direction"
-              [style]="{ border: '2px solid #172230' }"
+              [style]="{ border: '2px solid #172230', background: '#1f2d40' }"
             >
               <p-multiSelect
                 [(ngModel)]="selectedDirections"
@@ -46,7 +47,7 @@
             </p-card>
             <p-card
               subheader="Area Name"
-              [style]="{ border: '2px solid #172230' }"
+              [style]="{ border: '2px solid #172230', background: '#1f2d40' }"
             >
               <p-multiSelect
                 [(ngModel)]="selectedAreaNames"
@@ -59,7 +60,7 @@
             </p-card>
             <p-card
               subheader="Street Name"
-              [style]="{ border: '2px solid #172230' }"
+              [style]="{ border: '2px solid #172230', background: '#1f2d40' }"
             >
               <input
                 type="text"
@@ -68,6 +69,33 @@
                 [style]="{ width: '100%' }"
               />
             </p-card>
+            <p-divider align="center">
+              <p *ngIf="answerState === answerStates.Neutral">Submit Answer</p>
+              <p *ngIf="answerState === answerStates.CardinalError">
+                Wrong Cardinal Direction
+              </p>
+              <p *ngIf="answerState === answerStates.AreaError">
+                Wrong Area Name
+              </p>
+              <p *ngIf="answerState === answerStates.StreetError">
+                Wrong Street Name
+              </p>
+              <p *ngIf="answerState === answerStates.NoInputCardinal">
+                Please Enter A Cardinal Direction
+              </p>
+              <p *ngIf="answerState === answerStates.NoInputArea">
+                Please Enter An Area Name
+              </p>
+              <p *ngIf="answerState === answerStates.NoInputStreet">
+                Please Enter A Street Name
+              </p>
+            </p-divider>
+            <button
+              pButton
+              type="button"
+              label="Submit"
+              (click)="nextQuestion()"
+            ></button>
           </div>
         </p-card>
       </div>

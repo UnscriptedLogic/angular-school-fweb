@@ -1,0 +1,109 @@
+<p-dialog header="Username Taken" [(visible)]="displayUsertaken" [modal]="true">
+  <h5 class="flex justify-content-center align-items-center w-full">
+    Aw Snap! Someone took your legendary name. That's alright. <br />You always
+    come up with better ones... right?
+  </h5>
+</p-dialog>
+<p-dialog
+  header="Incorrect Password"
+  [(visible)]="displayWrongPassword"
+  [modal]="true"
+>
+  <h5 class="flex justify-content-center align-items-center w-full">
+    You have entered the wrong password. <br />This is your account right?
+  </h5>
+</p-dialog>
+<p-dialog
+  header="Duplicate Password"
+  [(visible)]="displaySamePasswordInvalid"
+  [modal]="true"
+>
+  <h5 class="flex justify-content-center align-items-center w-full">
+    Your new password is the same as the old one. <br />What was the point of
+    all that then?.
+  </h5>
+</p-dialog>
+<p-dialog
+  header="Invalid Fields"
+  [(visible)]="displayInvalidFields"
+  [modal]="true"
+>
+  <h5 class="flex justify-content-center align-items-center w-full">
+    Empty fields detected. <br />
+    In order to update your account, you are gonna need to input your password
+  </h5>
+</p-dialog>
+<div class="flex justify-content-center align-items-center h-screen w-full">
+  <p-card
+    header="{{ isLoggedIn ? username : 'User Not Logged In' }}"
+    subheader="High Score: {{ isLoggedIn ? score : 'No user detected' }}"
+    [style]="{ width: '1400px', height: '800px' }"
+    styleClass="p-card-shadow"
+  >
+    <h2 *ngIf="!isLoggedIn">Log in to edit your account</h2>
+    <div [style]="{ width: '25%' }" *ngIf="isLoggedIn">
+      <span class="p-float-label mt-3 mb-5">
+        <input
+          id="username"
+          type="text"
+          class="flex w-full"
+          [(ngModel)]="usernameInput"
+          pInputText
+        />
+        <label for="username">Username</label>
+      </span>
+      <span class="p-float-label mb-5">
+        <p-password
+          id="old_password"
+          type="password"
+          [toggleMask]="true"
+          styleClass="w-full"
+          [inputStyle]="{ width: '100%' }"
+          [feedback]="false"
+          [(ngModel)]="oldpasswordInput"
+        ></p-password>
+        <label for="old_password">Old Password</label>
+      </span>
+      <span class="p-float-label">
+        <p-password
+          id="new_password"
+          type="password"
+          [toggleMask]="true"
+          styleClass="w-full"
+          [inputStyle]="{ width: '100%' }"
+          [(ngModel)]="newpasswordInput"
+        ></p-password>
+        <label for="new_password">New Password</label>
+      </span>
+    </div>
+    <p-divider></p-divider>
+    <ng-template pTemplate="footer" *ngIf="isLoggedIn">
+      <div class="flex justify-content-end gap-3">
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Delete Account"
+          class="flex p-button-outlined p-button-danger"
+          (click)="onClickedDeleteAccount()"
+        ></button>
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Log Out"
+          class="flex p-button-outlined p-button-warning"
+          (click)="onClickedLogOut()"
+        ></button>
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Update Changes"
+          class="flex p-button p-button-success"
+          (click)="onClickedUpdate()"
+        ></button>
+      </div>
+    </ng-template>
+  </p-card>
+</div>

@@ -16,6 +16,10 @@ import {MultiSelectModule} from 'primeng/multiselect';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {ToggleButtonModule} from 'primeng/togglebutton';
 import {InputSwitchModule} from 'primeng/inputswitch';
+import {DividerModule} from 'primeng/divider';
+import {PasswordModule} from 'primeng/password';
+import {AutoCompleteModule} from 'primeng/autocomplete';
+import {SidebarModule} from 'primeng/sidebar';
 
 
 import {MenuItem} from 'primeng/api';
@@ -38,7 +42,11 @@ import {MenuItem} from 'primeng/api';
         MultiSelectModule,
         ProgressSpinnerModule,
         ToggleButtonModule,
-        InputSwitchModule
+        InputSwitchModule,
+        DividerModule,
+        PasswordModule,
+        AutoCompleteModule,
+        SidebarModule
     ]
 })
 
