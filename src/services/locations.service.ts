@@ -21,4 +21,21 @@ export class LocationsService {
 
     return locations;
   }
+
+  async addLocationAsync(url: string, cardinal: string, area: string, street: string) {
+    var response = await fetch(this.url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        imageURL: url,
+        cardinal: cardinal,
+        area: area,
+        street: street
+      })
+    });
+
+    return response;
+  }
 }

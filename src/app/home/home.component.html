@@ -15,7 +15,7 @@
     <ng-template pTemplate="footer">
       <p-button
         *ngIf="isLoggedIn"
-        class="flex align-items-end justify-content-end"
+        class="align-items-end justify-content-end"
         relative
         label="Let's Go!"
         icon="pi pi-caret-right"
@@ -25,12 +25,21 @@
       ></p-button>
       <p-button
         *ngIf="!isLoggedIn"
-        class="flex align-items-end justify-content-end"
+        class="align-items-end justify-content-end"
         relative
         label="Sign Up To Play!"
         icon="pi pi-pencil"
         styleClass="p-button-outlined p-button-warning"
         routerLink="/signup"
+      ></p-button>
+      <p-button
+        *ngIf="userType == 'Admin'"
+        class="align-items-end justify-content-end pl-3"
+        relative
+        label="Add a Location"
+        icon="pi pi-plus"
+        styleClass="p-button-outlined"
+        routerLink="/location"
       ></p-button>
     </ng-template>
   </p-card>

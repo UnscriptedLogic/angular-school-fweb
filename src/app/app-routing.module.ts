@@ -9,6 +9,7 @@ import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AccountComponent } from './account/account.component';
+import { LocationsComponent } from './locations/locations.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'leaderboards', component: LeaderboardsComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'account', component: AccountComponent }
+  { path: 'account', component: AccountComponent },
+  { path: 'location', component: LocationsComponent },
 ];
 
 @NgModule({

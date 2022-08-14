@@ -18,6 +18,7 @@ import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
 import { SignupComponent } from './signup/signup.component';
 import { AccountComponent } from './account/account.component';
 import { LoginComponent } from './login/login.component';
+import { LocationsComponent } from './locations/locations.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { LoginComponent } from './login/login.component';
     SignupComponent,
     AccountComponent,
     LoginComponent,
+    LocationsComponent,
   ],
   imports: [
     BrowserModule,

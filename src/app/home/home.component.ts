@@ -12,10 +12,12 @@ export class HomeComponent implements OnInit {
 
   isLoggedIn: boolean;
   gameDuration: number;
+  userType: string;
 
   ngOnInit(): void {
     this.isLoggedIn = GlobalVars.isLoggedIn;
     this.gameDuration = GlobalVars.gameDuration;
+    this.userType = GlobalVars.userType;
   }
 
   onClickedPlay() {

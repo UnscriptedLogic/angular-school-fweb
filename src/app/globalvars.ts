@@ -4,6 +4,9 @@ export class GlobalVars {
     public static username: string = "";
     public static password: string;
     public static score: number;
+    public static userType: string;
 
-    public static gameDuration: number = 5;
+    public static gameDuration: number = 120;
+
+    constructor() { }
 }

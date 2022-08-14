@@ -24,7 +24,11 @@ export class UsersService {
   }
 
   async createUserAsync(username: string, password: string) {
-    return await this.http.post<any[]>(this.url + "createUser", { username: username, password: password, score: 0 });
+    return await this.http.post<any[]>(this.url + "createUser", { username: username, password: password, score: 0, userType: "Normal" });
+  }
+
+  async createAdminAsync(username: string, password: string) {
+    return await this.http.post<any[]>(this.url + "createUser", { username: username, password: password, score: 0, userType: "Admin" });
   }
 
   async getUserByUsernameAsync(_username: string) {

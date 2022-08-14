@@ -44,7 +44,7 @@
                   : i == 2
                   ? "🥉 " + user.username
                   : user.username
-              }}
+              }}{{ user.userType == "Admin" ? "🛡" : "" }}
             </td>
             <td>{{ user.score }}</td>
           </tr>

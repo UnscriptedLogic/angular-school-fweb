@@ -33,12 +33,20 @@ router.route('/locations').get(function (req, res) {
     })
 })
 
+router.route('/locations').post(function(req, res) {
+    db.collection('game_qna').insertOne(req.body, function(err, result) {
+        if (err) return console.log(err);
+        res.send(result);
+    })
+})
+
 router.route('/createUser').post(function (req, res) {
     db.collection('users').insertOne(req.body, function (err, results) {
         if (err) return console.log(err);
         res.send(results);
     })
 })
+
 
 router.route('/findUserByUsername/:username').get(function (req, res) {
     db.collection('users').find({ username: req.params.username }).toArray(function (err, results) {

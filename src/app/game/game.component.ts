@@ -72,7 +72,9 @@ export class GameComponent implements OnInit {
         { name: 'Bedok'},
         { name: 'Bukit Timah'},
         { name: 'Chinatown'},
+        { name: 'Changi'},
         { name: 'Commonwealth'},
+        { name: 'Expo'},
         { name: 'Jurong'},
         { name: 'Kallang'},
         { name: 'Mandai'},
@@ -84,6 +86,7 @@ export class GameComponent implements OnInit {
         { name: 'Raffles Place'},
         { name: 'Simei'},
         { name: 'Seletar'},
+        { name: 'Sentosa'},
         { name: 'Tampines'},
         { name: 'Tanah Merah'},
       ];
@@ -202,6 +205,7 @@ export class GameComponent implements OnInit {
   }
 
   async concludeGame() {
+
     if (this.score > GlobalVars.score) {
       console.log(GlobalVars.mongoID);
       console.log(this.score);

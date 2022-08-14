@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
           GlobalVars.username = this.username;
           GlobalVars.password = this.password;
           GlobalVars.score = data[0].score;
+          GlobalVars.userType = data[0].userType;
           this.router.navigate(['']);
         } else {
           this.displayWrongPassword = true;

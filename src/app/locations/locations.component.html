@@ -1,0 +1,111 @@
+<div class="flex justify-content-center align-items-center h-screen w-full">
+  <p-card
+    header="Add a new location"
+    subheader="This will add a location to the set of questions"
+    [style]="{ width: '1400px', height: '800px' }"
+    styleClass="p-card-shadow"
+  >
+    <div class="flex">
+      <p-card
+        header="Location Image"
+        class="flex font-light"
+        [style]="{ width: '700px', height: '700px' }"
+      >
+        <img
+          src="{{ imagePath }}"
+          alt=""
+          [style]="{
+            width: '100%',
+            height: '100%',
+            border: '10px solid #131c29'
+          }"
+        />
+      </p-card>
+      <div class="flex mx-3 answer-card">
+        <p-card
+          header="Location Details"
+          subheader="These will be the needed answers"
+          class="flex-none"
+          [style]="{
+            width: '40em',
+            height: '700px',
+            border: '2px solid #172230'
+          }"
+        >
+          <div class="flex flex-column gap-3">
+            <p-card
+              subheader="Image URL"
+              [style]="{
+                border: '2px solid #172230',
+                background: '#1f2d40',
+                height: '115px'
+              }"
+            >
+              <input
+                type="text"
+                pInputText
+                [(ngModel)]="imagePath"
+                [style]="{ width: '100%' }"
+              />
+            </p-card>
+            <p-card
+              subheader="Cardinal Direction"
+              [style]="{
+                border: '2px solid #172230',
+                background: '#1f2d40',
+                height: '115px'
+              }"
+            >
+              <p-multiSelect
+                [(ngModel)]="selectedDirections"
+                [options]="cardinalDirections"
+                optionLabel="direction"
+                defaultLabel="Select"
+                display="chip"
+                [style]="{ width: '100%' }"
+              ></p-multiSelect>
+            </p-card>
+            <p-card
+              subheader="Area Name"
+              [style]="{
+                border: '2px solid #172230',
+                background: '#1f2d40',
+                height: '115px'
+              }"
+            >
+              <p-multiSelect
+                [(ngModel)]="selectedAreaNames"
+                [options]="areaNames"
+                optionLabel="name"
+                defaultLabel="Select"
+                display="chip"
+                [style]="{ width: '100%' }"
+              ></p-multiSelect>
+            </p-card>
+            <p-card
+              subheader="Street Name"
+              [style]="{
+                border: '2px solid #172230',
+                background: '#1f2d40',
+                height: '115px'
+              }"
+            >
+              <input
+                type="text"
+                pInputText
+                [(ngModel)]="streetName"
+                [style]="{ width: '100%' }"
+              />
+            </p-card>
+            <button
+              pButton
+              type="button"
+              label="Submit"
+              (click)="addLocation()"
+            ></button>
+          </div>
+        </p-card>
+      </div>
+    </div>
+  </p-card>
+</div>
